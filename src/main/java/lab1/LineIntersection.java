@@ -1,7 +1,5 @@
 package lab1;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -27,7 +25,7 @@ public class LineIntersection {
         Line line1 = new Line(new Point(x1, y1), new Point(x2, y2));
         Line line2 = new Line(new Point(x3, y3), new Point(x4, y4));
 
-        IntersectionResult ir = line1.lineIntersects(line2);
+        IntersectionResult ir = line1.lineIntersection(line2);
 
         if (true);
         System.out.println();

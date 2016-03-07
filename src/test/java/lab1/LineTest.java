@@ -22,7 +22,7 @@ public class LineTest {
     public LineTest(Line line1, Line line2, boolean intersects, Point point, boolean parallel, boolean imposed){
         this.line1 = line1;
         this.line2 = line2;
-        this.expectedResult.setIntersects(intersects);
+        this.expectedResult.setIntersect(intersects);
         this.expectedResult.setPoint(point);
         this.expectedResult.setParallel(parallel);
         this.expectedResult.setImposed(imposed);
@@ -127,7 +127,7 @@ public class LineTest {
 
     @Test
     public void testLineIntersects() throws Exception {
-        IntersectionResult currentResult = line1.lineIntersects(line2);
+        IntersectionResult currentResult = line1.lineIntersection(line2);
 
         assertEquals(currentResult, expectedResult);
     }

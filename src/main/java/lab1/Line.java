@@ -93,60 +93,60 @@ public class Line {
         return p.getX() >= leftX() && p.getX() <= rightX() && p.getY() >= bottomY() && p.getY() <= topY();
     }
 
-    public IntersectionResult lineIntersects(Line l){
+    public IntersectionResult lineIntersection(Line l){
         IntersectionResult result = new IntersectionResult();
 
         if (isPoint() && l.isPoint()) {
             if (leftX() == l.leftX() && bottomY() == l.bottomY()) {
-                result.setIntersects(true);
+                result.setIntersect(true);
                 result.setImposed(true);
                 result.setPoint(p1);
                 return result;
             } else {
-                result.setIntersects(false);
+                result.setIntersect(false);
                 return result;
             }
         }
         if (isPoint()) {
             if (bottomY() == l.getK() * leftX() + l.getB()){
-                result.setIntersects(true);
+                result.setIntersect(true);
                 result.setPoint(p1);
                 return result;
             } else {
-                result.setIntersects(false);
+                result.setIntersect(false);
                 return result;
             }
         }
 
         if (l.isPoint()) {
             if (l.bottomY() == getK() * l.leftX() + getB()) {
-                result.setIntersects(true);
+                result.setIntersect(true);
                 result.setPoint(l.getP1());
                 return result;
             } else {
-                result.setIntersects(false);
+                result.setIntersect(false);
                 return result;
             }
         }
 
         if (isVertical() && l.isVertical()) {
             if (leftX() == l.leftX()) {
-                result.setIntersects(true);
+                result.setIntersect(true);
                 result.setImposed(true);
                 return result;
             } else {
-                result.setIntersects(false);
+                result.setIntersect(false);
                 result.setParallel(true);
                 return result;
             }
         }
         if (k == l.getK() && b == l.getB()){
-            result.setIntersects(true);
+            result.setIntersect(true);
             result.setImposed(true);
             return result;
         }
         if (k == l.getK() && !isVertical() && !l.isVertical()){
-            result.setIntersects(false);
+            result.setIntersect(false);
             result.setParallel(true);
             return result;
         }
@@ -166,15 +166,15 @@ public class Line {
             x = (l.getB() - b) / (k - l.getK());
             y = (b * l.getK() - l.getB() * k) / (l.getK() - k);
         }
-        result.setIntersects(true);
+        result.setIntersect(true);
         result.setPoint(new Point(x, y));
         return result;
     }
 
-    public IntersectionResult lineSegmentIntersects(Line l){
-        IntersectionResult intersectionResult = lineIntersects(l);
+    public IntersectionResult segmentIntersection(Line l){
+        IntersectionResult intersectionResult = lineIntersection(l);
 
-        if (!intersectionResult.getIntersects()) {
+        if (!intersectionResult.getIntersect()) {
             return intersectionResult;
         } else {
             if (intersectionResult.getImposed()) {
@@ -183,10 +183,10 @@ public class Line {
                         intersectionResult.setPoint(p1);
                     if (p2.equals(l.p1) || p2.equals(l.p2))
                         intersectionResult.setPoint(p2);
-                    intersectionResult.setIntersects(true);
+                    intersectionResult.setIntersect(true);
                     return intersectionResult;
                 } else {
-                    intersectionResult.setIntersects(false);
+                    intersectionResult.setIntersect(false);
                     return intersectionResult;
                 }
             }
@@ -194,7 +194,7 @@ public class Line {
             if (point.inSegment(this) && point.inSegment(l)) {
                 return intersectionResult;
             } else {
-                intersectionResult.setIntersects(false);
+                intersectionResult.setIntersect(false);
                 intersectionResult.setPoint(null);
                 return intersectionResult;
             }
