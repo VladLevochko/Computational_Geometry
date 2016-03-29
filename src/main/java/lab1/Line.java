@@ -171,7 +171,7 @@ public class Line {
         return result;
     }
 
-    public IntersectionResult segmentIntersection(Line l){
+    public IntersectionResult segmentsIntersection(Line l){
         IntersectionResult intersectionResult = lineIntersection(l);
 
         if (!intersectionResult.getIntersect()) {
@@ -208,10 +208,10 @@ public class Line {
         double b1 = line.X2() - line.X1();
         double b2 = line.Y2() - line.Y1();
 
-        double d = a1 * b1 + a2 * b2;
+        double angle = Math.atan2(b2, b1) - Math.atan2(a2, a1);
+        if (angle < 0)
+            angle += 2 * Math.PI;
 
-        double len1 = Math.sqrt(a1 * a1 + a2 * a2);
-        double len2 = Math.sqrt(b1 * b1 + b2 * b2);
-        return Math.toDegrees(Math.acos(d / (len1 * len2)));
+        return Math.toDegrees(angle);
     }
 }

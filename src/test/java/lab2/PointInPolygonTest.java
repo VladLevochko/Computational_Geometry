@@ -93,12 +93,16 @@ public class PointInPolygonTest {
                 {
                         P, new Point(8, 4), true
                 },
+                //8
+                {
+                        P, new Point(7, 4.5), true
+                },
         });
     }
 
     @Test
     public void testInPolygon() throws Exception {
-        assertEquals(polygon.inPolygonSlow(point), expectedResult);
+        assertEquals(polygon.inPolygon(point), expectedResult);
     }
 
 }

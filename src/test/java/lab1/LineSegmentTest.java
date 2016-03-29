@@ -162,7 +162,7 @@ public class LineSegmentTest {
 
     @Test
     public void testLineSegmentIntersects() throws Exception {
-        IntersectionResult currentResult = line1.segmentIntersection(line2);
+        IntersectionResult currentResult = line1.segmentsIntersection(line2);
 
         assertEquals(currentResult, expectedResult);
     }

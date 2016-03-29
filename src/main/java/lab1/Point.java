@@ -14,7 +14,10 @@ public class Point implements Comparable{
         this.x = x;
         this.y = y;
         this.r = Math.sqrt(x * x + y * y);
-        this.alpha = Math.atan(x / y);
+        if (y != 0)
+            this.alpha = Math.atan(x / y);
+        else
+            this.alpha = 0;
     }
 
     public Point(double x, double y){

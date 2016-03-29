@@ -18,7 +18,7 @@ public class AngleTest {
     private Line l1 = null;
     private Line l2 = null;
     private double angle = 0;
-    private double delta = 0.001;
+    private double delta = Math.exp(-24);
 
     public AngleTest(Line l1, Line l2, double angle){
         this.l1 = l1;
@@ -33,25 +33,25 @@ public class AngleTest {
                 {
                         new Line(new Point(1, 1), new Point(4, 3)),
                         new Line(new Point(1, 1), new Point(4, 1)),
-                        33.69
+                        326.3099324740202
                 },
                 //1
                 {
                         new Line(new Point(1, 2), new Point(3, 3)),
                         new Line(new Point(1, 1), new Point(4, 3)),
-                        7.1250
+                        7.125016348901797
                 },
                 //2
                 {
                         new Line(new Point(1, 1), new Point(4, 3)),
                         new Line(new Point(1, 2), new Point(3, 3)),
-                        7.1250
+                        352.87498365109815
                 },
                 //3
                 {
                         new Line(new Point(1, 2), new Point(3, 3)),
                         new Line(new Point(1, 2), new Point(4, 2)),
-                        26.5650
+                        333.434948822922
                 },
                 //4 vp
                 {
@@ -79,16 +79,52 @@ public class AngleTest {
                 },
                 //8
                 {
-                        new Line(new Point(0, 0), new Point(0, 5)),
-                        new Line(new Point(0, 0), new Point(0.00002, 40)),
-                        0.0001
+                        new Line(new Point(0, 0), new Point(10000000, 0)),
+                        new Line(new Point(0, 0), new Point(10000000, 1)),
+                        5.729577951308213E-6
                 },
+                //9
                 {
                         new Line(new Point(0, 0), new Point(-5, 0.00002)),
                         new Line(new Point(0, 0), new Point(5, 0)),
-                        179.99977
-                }
-
+                        180.00022918311802
+                },
+                //10
+                {
+                        new Line(new Point(0, 0), new Point(2, 0)),
+                        new Line(new Point(0, 0), new Point(0, 2)),
+                        90
+                },
+                //11
+                {
+                        new Line(new Point(0, 0), new Point(0, 2)),
+                        new Line(new Point(0, 0), new Point(2, 0)),
+                        270
+                },
+                //12
+                {
+                        new Line(new Point(0, 0), new Point(0, 2)),
+                        new Line(new Point(0, 0), new Point(0, -2)),
+                        180
+                },
+                //13
+                {
+                        new Line(new Point(0, 0), new Point(0, -2)),
+                        new Line(new Point(0, 0), new Point(0, 2)),
+                        180
+                },
+                //14
+                {
+                        new Line(new Point(0, 0), new Point(2, 0)),
+                        new Line(new Point(0, 0), new Point(-2, 1)),
+                        153.43494882292202
+                },
+                //15
+                {
+                        new Line(new Point(0, 0), new Point(-2, 1)),
+                        new Line(new Point(0, 0), new Point(2, 0)),
+                        206.56505117707798
+                },
         });
     }
 

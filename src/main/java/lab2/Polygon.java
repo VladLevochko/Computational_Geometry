@@ -5,7 +5,6 @@ import lab1.Line;
 import lab1.Point;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -28,17 +27,16 @@ public class Polygon {
         this.vertices  = vertices;
     }
 
-    public boolean inPolygonSlow(Point p) {
+    public boolean inPolygon(Point p) {
 
         Line l = new Line(p, new Point (Double.MIN_VALUE / 2, p.getY()));
         Point prev = vertices.get(vertices.size() - 1);
-
         Point prevIntersectionPoint = null;
 
         int countOfIntersectedEdges = 0;
         for (Point current : vertices) {
             Line edge = new Line(prev, current);
-            IntersectionResult intersectionResult = l.segmentIntersection(edge);
+            IntersectionResult intersectionResult = l.segmentsIntersection(edge);
             if (intersectionResult.getImposed()){
                 if (prevIntersectionPoint != null && prevIntersectionPoint.compareX(p) < 0) {
                     prevIntersectionPoint = null;
