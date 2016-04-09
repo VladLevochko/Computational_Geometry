@@ -125,6 +125,12 @@ public class AngleTest {
                         new Line(new Point(0, 0), new Point(2, 0)),
                         206.56505117707798
                 },
+                //16
+                {
+                        new Line(new Point(1, 0), new Point(3, 2)),
+                        new Line(new Point(1, 3), new Point(3, 0)),
+                        206.56505117707798
+                },
         });
     }
 
