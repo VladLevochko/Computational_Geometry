@@ -26,10 +26,14 @@ public class ConvexHull {
             }
 
             double angle = 360;
+            double curLength = Integer.MAX_VALUE;
             Point nextPoint = convexHull.get(0);
             for (Point p : pointSet) {
                 b = new Line(last, p);
                 double curAngle = a.angleBetween(b);
+                if (curAngle == angle && b.getLength() < curLength) {
+                    nextPoint = p;
+                }
                 if (curAngle < angle && p != last && convexHull.indexOf(p) == -1 || curAngle < angle && p == convexHull.get(0) && convexHull.size() > 1) {
                     angle = curAngle;
                     nextPoint = p;

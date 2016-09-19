@@ -24,15 +24,8 @@ public class Point implements Comparable{
         this.x = x;
         this.y = y;
         this.r = Math.sqrt(x * x + y * y);
-        this.alpha = Math.toDegrees(Math.atan(x / y));
-    }
-
-    @Override
-    public String toString() {
-        return "Point{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        //this.alpha = Math.toDegrees(Math.atan(x / y));
+        this.alpha = Math.toDegrees(Math.atan2(y, x));
     }
 
     @Override
@@ -60,6 +53,14 @@ public class Point implements Comparable{
 
     public double getX(){
         return x;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 
     public double getY(){

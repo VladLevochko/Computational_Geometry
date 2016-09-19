@@ -8,6 +8,7 @@ public class Line {
     private double k = 0;
     private boolean vertical = false;
     private boolean point = false;
+    private double length = 0;
     Point p1 = null;
     Point p2 = null;
 
@@ -25,6 +26,15 @@ public class Line {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Line{" +
+                "p1=" + p1 +
+                ", p2=" + p2 +
+                ", length=" + length +
+                '}';
+    }
+
     public Line(Point p1, Point p2){
         this.p1 = p1;
         this.p2 = p2;
@@ -37,6 +47,8 @@ public class Line {
             else
                 vertical = true;
         }
+
+        this.length = Math.sqrt((p1.getX() - p2.getX()) * (p1.getX() - p2.getX()) + (p1.getY() - p2.getY()) * (p1.getY() - p2.getY()));
     }
 
     public double leftX(){
@@ -82,6 +94,12 @@ public class Line {
     public Point getP1(){
         return p1;
     }
+
+    public Point getP2(){
+        return p2;
+    }
+
+    public double getLength() { return length; }
 
     public boolean isVertical(){
         return vertical;

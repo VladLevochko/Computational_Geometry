@@ -26,21 +26,18 @@ public class Tester extends JPanel{
     private final int yRange = 500;
 
     public Tester() {
-        OKButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                pointNumber = Integer.parseInt(pointNumberField.getText());
+        OKButton.addActionListener(e -> {
+            pointNumber = Integer.parseInt(pointNumberField.getText());
 
-                pointSet = generatePoints(pointNumber);
-                drawPoints(pointSet);
+            pointSet = generatePoints(pointNumber);
+            drawPoints(pointSet);
 
-                long start = System.currentTimeMillis();
-                ArrayList<Point> ch = convexHull.jarvis(pointSet);
-                long finish = System.currentTimeMillis();
-                executingTimeLabel.setText(Long.toString(finish - start) + "ms");
+            long start = System.currentTimeMillis();
+            ArrayList<Point> ch = convexHull.jarvis(pointSet);
+            long finish = System.currentTimeMillis();
+            executingTimeLabel.setText(Long.toString(finish - start) + "ms");
 
-                drawConvexHull(ch);
-            }
+            drawConvexHull(ch);
         });
     }
 
